@@ -55,7 +55,7 @@ bot.on("ready", () => {
 	console.log("Bot Initialised!");
 	
 	//bot.user.setStatus("Online");
-	bot.user.setActivity("Fragging niggas in the Gulag!");
+	bot.user.setActivity("Fragging peeps in the Gulag!");
 });
 
 bot.login(confiG.token);
