@@ -1,0 +1,109 @@
+{
+    "commands":[
+        {
+            "name": "prefix",        
+            "description": "!",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "help",        
+            "description": "Displays all available commands for me!",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "steam",        
+            "description": "A link to my creators Steam profile",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "source",        
+            "description": "A link to all my inner workings...",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "play",        
+            "description": "Plays the desired song from a YouTube link or by search!",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "pause",        
+            "description": "pauses the current song being played.",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "resume",        
+            "description": "resumes a paused song.",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "skip",        
+            "description": "skips the current song being played, and palys the next in queue!",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "leave",        
+            "description": "Guess I'll be going :(",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "adminh",        
+            "description": "displays commands only accesible to admins and moderators!",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "purge",        
+            "description": "removes up to 100 messages at a time!",
+            "roles": [
+                {
+                    "name": "Moderator"
+                },
+                {
+                    "name": "Admin"
+                },
+                {
+                    "name": "Warden"
+                }
+            ]
+        }
+    ]
+}
