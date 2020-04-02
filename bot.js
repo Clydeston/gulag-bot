@@ -36,18 +36,18 @@ try {
 });
 
 bot.on("guildMemberAdd", member => {
-  	var Role = member.guild.roles.find("name", "Prisoners");
+  	var Role = member.guild.roles.cache.get("694557751812292780");
 
-  	member.addRole(Role);
+  	member.roles.add(Role);
 
-  	bot.channels.get(serverStats.totalUsersID).setName(`Current Prisoners: ${member.guild.memberCount - member.guild.members.filter(m => m.user.bot).size}`);
-	bot.channels.get(serverStats.botCountID).setName(`Robot Count: ${member.guild.members.filter(m => m.user.bot).size}`);
+  	bot.channels.cache.get(serverStats.totalUsersID).setName(`Current Prisoners: ${member.guild.memberCount - member.guild.members.cache.filter(m => m.user.bot).size}`);
+	bot.channels.cache.get(serverStats.botCountID).setName(`Robot Count: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
 });
 
 bot.on("guildMemberRemove", member => {
 
-	bot.channels.get(serverStats.totalUsersID).setName(`Current Prisoners: ${member.guild.memberCount - member.guild.members.filter(m => m.user.bot).size}`);
-	bot.channels.get(serverStats.botCountID).setName(`Robot Count: ${member.guild.members.filter(m => m.user.bot).size}`);
+	bot.channels.cache.get(serverStats.totalUsersID).setName(`Current Prisoners: ${member.guild.memberCount - member.guild.members.cache.filter(m => m.user.bot).size}`);
+	bot.channels.cache.get(serverStats.botCountID).setName(`Robot Count: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
 	
 });
 
