@@ -27,7 +27,7 @@ try {
   commandFile.run(bot, message, args, ops);
 
   } catch (e) {	  	  
-	  console.log(e);
+	 // console.log(e);
 	  message.channel.send({embed:{
 		title:"This command doesn't exist! Try using !help for more info!",
 		color: 0x42F100	
