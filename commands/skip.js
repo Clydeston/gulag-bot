@@ -33,13 +33,19 @@ exports.run = async (bot, message, args, ops) => {
   if(fetched.queue[0].voteSkips.length >= required) {
 
     message.channel.send({embed:{
-      title: `Skipped song!`,
+      title: "Skipped song!",
       color: 0xd6c211
     }});
 
     return fetched.dispatcher.emit("end");
 
   }else if(message.member.roles.cache.some(role => role.name === "Moderator") || message.member.roles.cache.some(role => role.name === "Admin") || message.member.roles.cache.some(role => role.name === "Warden")) {
+
+    message.channel.send({embed:{
+      title: "Force Skipped song!",
+      color: 0xd6c211
+    }});
+
     return fetched.dispatcher.emit("end");
   }
 

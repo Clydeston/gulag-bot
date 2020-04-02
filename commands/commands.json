@@ -38,7 +38,16 @@
         },
         {
             "name": "play",        
-            "description": "Plays the desired song from a YouTube link or by search!",
+            "description": "Plays the desired song from a YouTube link!",
+            "roles": [
+                {
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "p",        
+            "description": "Plays the desired song from YouTube search!",
             "roles": [
                 {
                     "name": "default"
@@ -82,8 +91,8 @@
             ]
         },
         {
-            "name": "adminh",        
-            "description": "displays commands only accesible to admins and moderators!",
+            "name": "summon",        
+            "description": "summons me to your voice channel.",
             "roles": [
                 {
                     "name": "default"
@@ -93,6 +102,21 @@
         {
             "name": "purge",        
             "description": "removes up to 100 messages at a time!",
+            "roles": [
+                {
+                    "name": "Moderator"
+                },
+                {
+                    "name": "Admin"
+                },
+                {
+                    "name": "Warden"
+                }
+            ]
+        },
+        {
+            "name": "reload",        
+            "description": "reloads a selected command.",
             "roles": [
                 {
                     "name": "Moderator"

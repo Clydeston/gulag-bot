@@ -12,17 +12,23 @@ exports.run = async (bot, message, args, ops ) => {
   let queue = fetched.queue;
   let nowPlaying = queue[0];
 
-  let response = `__**Now playing**__\n\n	***${nowPlaying.songTitle}\n\n*** __**-Requested by**__\n\n ***${nowPlaying.requester}***\n\n__**Queue**__\n\n`;
+  if(nowPlaying != null) {
+    let response = `__**Now playing**__\n\n	***${nowPlaying.songTitle}\n\n*** __**-Requested by**__\n\n ***${nowPlaying.requester}***\n\n__**Queue**__\n\n`;
 
-  for(var i = 1; i < queue.length; i++) {
+    for(var i = 1; i < queue.length; i++) {
+  
+      response += `***${i}. ${queue[i].songTitle}***\n __**-Requested by**__ \n ***${nowPlaying.requester}***\n\n `;
+  
+    }
 
-    response += `***${i}. ${queue[i].songTitle}***\n __**-Requested by**__ \n ***${nowPlaying.requester}***\n\n `;
-
+    message.channel.send({embed:{
+      description: (response),
+      color: 0xd6c211
+    }});
+  }else {
+    message.channel.send({embed:{
+      description: ("There currently isn't any music playing!"),
+      color: 0xd6c211
+    }});
   }
-
-  message.channel.send({embed:{
-    description: (response),
-    color: 0xd6c211
-  }});
-
 }
