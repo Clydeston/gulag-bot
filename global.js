@@ -1,4 +1,5 @@
 const commands = require("./commands/commands.json");
+const Discord = require("discord.js");
 
 var methods = {};
 
@@ -16,6 +17,19 @@ methods.getCommandPermissions = function(command_name) {
         }
     });
     return return_val;
+}
+
+methods.sendMessageToChannel = function(bot, channel_id, title, description = null, colour = "0x42F100") {
+  let channel = bot.channels.cache.get(channel_id);
+  
+  const embed = new Discord.MessageEmbed();
+  embed.setTitle(title);
+  if(description) {
+    embed.setDescription(description)
+  }  
+  embed.setColor(colour);
+
+  channel.send(embed);
 }
 
 exports.data = methods;

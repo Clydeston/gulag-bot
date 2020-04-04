@@ -19,9 +19,18 @@ exports.run = (bot, message, args, ops) => {
 
         let video_result = results.videos.slice(0, 10);
         
-        for(var i = 0; i < video_result.length; i++) {
-            embed.addField(`${i+1}.`, `${video_result[i].title}`, false);
+        if(video_result.length < 10) {
+            return message.channel.send({embed:{
+                title:"Please search again",
+                color: 0x42F100
+            
+            }});
+        }else {
+            for(var i = 0; i < video_result.length; i++) {
+                embed.addField(`${i+1}.`, `${video_result[i].title}`, false);
+            }
         }
+
 
         embed.setFooter('Choose a number from the list above!');
         message.channel.send(embed);

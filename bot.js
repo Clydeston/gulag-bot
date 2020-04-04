@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 const confiG = require("./config.json");
 const ownerID = "270659027262767105";
 const active = new Map();
+const global = require("./global.js")
 
 const serverStats = {
 	totalUsersID: "694514637726547999",
@@ -28,10 +29,7 @@ try {
 
   } catch (e) {	  	  
 	 // console.log(e);
-	  message.channel.send({embed:{
-		title:"This command doesn't exist! Try using !help for more info!",
-		color: 0x42F100	
-	  }});
+	 global.data.sendMessageToChannel(bot, message.channel.id, "This command doesn't exist! Try using !help for more info!");
   }
 });
 
@@ -42,12 +40,16 @@ bot.on("guildMemberAdd", member => {
 
   	bot.channels.cache.get(serverStats.totalUsersID).setName(`Current Prisoners: ${member.guild.memberCount - member.guild.members.cache.filter(m => m.user.bot).size}`);
 	bot.channels.cache.get(serverStats.botCountID).setName(`Robot Count: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
+
+	global.data.sendMessageToChannel(bot, "695936832273121310", `User: ${(member.displayName)} | ${member.id}`,"Member joined us!");
 });
 
 bot.on("guildMemberRemove", member => {
 
 	bot.channels.cache.get(serverStats.totalUsersID).setName(`Current Prisoners: ${member.guild.memberCount - member.guild.members.cache.filter(m => m.user.bot).size}`);
 	bot.channels.cache.get(serverStats.botCountID).setName(`Robot Count: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
+
+	global.data.sendMessageToChannel(bot, "695936869145247744", `User: ${(member.displayName)} | ${member.id}`, "Member left the server.");
 	
 });
 

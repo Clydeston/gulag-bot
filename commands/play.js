@@ -65,11 +65,9 @@ async function play(bot, ops, data) {
 
   data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: "audioonly"}));
   data.dispatcher.guildID = data.guildID;
-
-  data.dispatcher.once("end", function() {
-
+  
+  data.dispatcher.once("finish", function() {    
     end(bot, ops, this);
-
   });
 }
 
@@ -79,8 +77,7 @@ function end(bot, ops, dispatcher) {
 
   fetched.queue.shift();
 
-  if(fetched.queue.length > 0){
-
+  if(fetched.queue.length > 1) {
     ops.active.set(dispatcher.guildID, fetched);
 
     play(bot, ops, fetched);
