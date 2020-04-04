@@ -3,10 +3,6 @@ const Discord = require("discord.js");
 
 var methods = {};
 
-methods.sum = function(one, two) {
-    return one + two;
-}
-
 this.commands= null;
 
 methods.getCommandPermissions = function(command_name) {

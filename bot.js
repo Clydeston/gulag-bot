@@ -28,7 +28,7 @@ try {
   commandFile.run(bot, message, args, ops);
 
   } catch (e) {	  	  
-	 // console.log(e);
+	  console.log(e);
 	 global.data.sendMessageToChannel(bot, message.channel.id, "This command doesn't exist! Try using !help for more info!");
   }
 });

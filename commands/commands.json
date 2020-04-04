@@ -11,7 +11,7 @@
         },
         {
             "name": "help",        
-            "description": "Displays all available commands for me!",
+            "description": "Displays all available commands for me! \n Usage: [prefix] help",
             "roles": [
                 {
                     "name": "default"
@@ -20,7 +20,7 @@
         },
         {
             "name": "steam",        
-            "description": "A link to my creators Steam profile",
+            "description": "A link to my creators Steam profile \n Usage: [prefix] steam",
             "roles": [
                 {
                     "name": "default"
@@ -29,7 +29,7 @@
         },
         {
             "name": "source",        
-            "description": "A link to all my inner workings...",
+            "description": "A link to all my inner workings... \n Usage: [prefix] source",
             "roles": [
                 {
                     "name": "default"
@@ -38,7 +38,7 @@
         },
         {
             "name": "play",        
-            "description": "Plays the desired song from a YouTube link!",
+            "description": "Plays the desired song from a YouTube link! \n Usage: [prefix] play [video OR playlist URL]",
             "roles": [
                 {
                     "name": "default"
@@ -47,7 +47,7 @@
         },
         {
             "name": "p",        
-            "description": "Plays the desired song from YouTube search!",
+            "description": "Plays the desired song from YouTube search! \n Usage: [prefix] p [search query]",
             "roles": [
                 {
                     "name": "default"
@@ -56,7 +56,7 @@
         },
         {
             "name": "pause",        
-            "description": "pauses the current song being played.",
+            "description": "pauses the current song being played. \n Usage: [prefix] pause",
             "roles": [
                 {
                     "name": "default"
@@ -65,7 +65,7 @@
         },
         {
             "name": "resume",        
-            "description": "resumes a paused song.",
+            "description": "resumes a paused song. \n Usage: [prefix] resume",
             "roles": [
                 {
                     "name": "default"
@@ -74,7 +74,7 @@
         },
         {
             "name": "skip",        
-            "description": "skips the current song being played, and palys the next in queue!",
+            "description": "skips the current song being played, and palys the next in queue! \n Usage: [prefix] skip",
             "roles": [
                 {
                     "name": "default"
@@ -83,7 +83,7 @@
         },
         {
             "name": "leave",        
-            "description": "Guess I'll be going :(",
+            "description": "Guess I'll be going :( \n Usage: [prefix] leave",
             "roles": [
                 {
                     "name": "default"
@@ -92,7 +92,7 @@
         },
         {
             "name": "summon",        
-            "description": "summons me to your voice channel.",
+            "description": "summons me to your voice channel. \n Usage: [prefix] summon",
             "roles": [
                 {
                     "name": "default"
@@ -101,7 +101,7 @@
         },
         {
             "name": "purge",        
-            "description": "removes up to 100 messages at a time!",
+            "description": "removes up to 100 messages at a time! \n Usage: [prefix] purge [deletion amount]",
             "roles": [
                 {
                     "name": "Moderator"
@@ -116,7 +116,37 @@
         },
         {
             "name": "reload",        
-            "description": "reloads a selected command.",
+            "description": "reloads a selected command. \n Usage: [prefix] reload [command name]",
+            "roles": [
+                {
+                    "name": "Moderator"
+                },
+                {
+                    "name": "Admin"
+                },
+                {
+                    "name": "Warden"
+                }
+            ]
+        },
+        {
+            "name": "kick",        
+            "description": "kicks the specified user. \n Usage: [prefix] kick [@mention]",
+            "roles": [
+                {
+                    "name": "Moderator"
+                },
+                {
+                    "name": "Admin"
+                },
+                {
+                    "name": "Warden"
+                }
+            ]
+        },
+        {
+            "name": "ban",        
+            "description": "bans the specified user. \n Usage: [prefix] ban [user ID OR @mention]",
             "roles": [
                 {
                     "name": "Moderator"
