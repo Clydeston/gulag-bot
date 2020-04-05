@@ -37,17 +37,8 @@
             ]
         },
         {
-            "name": "play",        
-            "description": "Plays the desired song from a YouTube link! \n Usage: [prefix] play [video OR playlist URL]",
-            "roles": [
-                {
-                    "name": "default"
-                }
-            ]
-        },
-        {
             "name": "p",        
-            "description": "Plays the desired song from YouTube search! \n Usage: [prefix] p [search query]",
+            "description": "Plays the desired song from a YouTube link! \n Usage: [prefix] p [video query OR URL]",
             "roles": [
                 {
                     "name": "default"
@@ -73,8 +64,8 @@
             ]
         },
         {
-            "name": "skip",        
-            "description": "skips the current song being played, and palys the next in queue! \n Usage: [prefix] skip",
+            "name": "s",        
+            "description": "skips the current song being played, and palys the next in queue! \n Usage: [prefix] s",
             "roles": [
                 {
                     "name": "default"

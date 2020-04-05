@@ -35,7 +35,7 @@ exports.run = (bot, message, args, ops) => {
       data.dispatcher = null;
       data.connection = null;
     }else {
-      return fetched.dispatcher.emit("end");
+      return fetched.dispatcher.emit("finish");
     }
   }
   message.guild.me.voice.channel.leave();
