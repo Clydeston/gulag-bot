@@ -1,5 +1,5 @@
 const yt_search = require("yt-search");
-const play = require("./play.js");
+const play = require("./p.js");
 const Discord = require("discord.js");
 
 exports.run = (bot, message, args, ops) => {
