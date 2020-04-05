@@ -19,9 +19,8 @@ function kick(user, message, reason_for_kick, bot) {
     try {
         user.kick(reason_for_kick);
         global.data.sendMessageToChannel(bot, message.channel.id, `Successfully kicked: ${user.displayName}`);
-        global.data.sendMessageToChannel(bot, "695936888879710309", `${message.member.displayName} kicked: ${user.displayName}`, `Reason: ${reason_for_kick}`);
+        global.data.sendMessageToChannel(bot, "695936888879710309", `${message.member.displayName} (${message.member.id}) kicked: ${user.displayName} (${user.id})`, `Reason: ${reason_for_kick}`);
     }catch(err) {
         console.log(err);
     }   
 }
-  

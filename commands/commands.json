@@ -146,11 +146,8 @@
         },
         {
             "name": "ban",        
-            "description": "bans the specified user. \n Usage: [prefix] ban [user ID OR @mention]",
+            "description": "bans the specified user. \n Usage: [prefix] ban [@mention]",
             "roles": [
-                {
-                    "name": "Moderator"
-                },
                 {
                     "name": "Admin"
                 },
