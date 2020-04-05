@@ -1,0 +1,33 @@
+{
+  "name": "gulag-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for the Gulag server",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^12.1.1",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "node-gyp": "^3.8.0",
+    "node-opus": "^0.3.3",
+    "opusscript": "^0.0.6",
+    "rebuild": "^0.1.2",
+    "when": "^3.7.8",
+    "yt-search": "^1.1.2",
+    "ytdl-core": "^2.0.1",
+    "ytdl-getinfo": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clydeston/gulag-bot.git"
+  },
+  "author": "Clydeston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clydeston/gulag-bot/issues"
+  },
+  "homepage": "https://github.com/Clydeston/gulag-bot#readme"
+}
