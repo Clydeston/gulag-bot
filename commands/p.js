@@ -1,6 +1,7 @@
 const ytdl = require("ytdl-core");
 const { getInfo } = require("ytdl-getinfo");
 const search = require("./search.js");
+const fs = require('fs');
 
 exports.run = async (bot, message, args, ops) => {
 
@@ -62,9 +63,16 @@ async function play(bot, ops, data) {
     color: 0xd6c211
   }});
 
-  data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: "audioonly"}));
+  /*let music_stream = ytdl(data.queue[0].url, { quality: "highestaudio"})
+  .pipe(fs.createWriteStream('../videos/video.mp3'));*/
+  let music_stream = ytdl(data.queue[0].url, { filter: 'audioonly', highWaterMark: 1<<25 }); //, quality: 'lowest'
+  //.pipe(fs.createWriteStream('./videos/video.mp3'));
+
+  data.dispatcher = await data.connection.play(music_stream); //"/videos/video.mp3" //music_stream, {bitrate: 68000 }
   data.dispatcher.guildID = data.guildID;
-  
+
+  data.dispatcher.on('error', console.error);
+
   data.dispatcher.once("finish", function() {    
     end(bot, ops, this);
   });
