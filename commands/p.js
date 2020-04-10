@@ -63,12 +63,9 @@ async function play(bot, ops, data) {
     color: 0xd6c211
   }});
 
-  /*let music_stream = ytdl(data.queue[0].url, { quality: "highestaudio"})
-  .pipe(fs.createWriteStream('../videos/video.mp3'));*/
-  let music_stream = ytdl(data.queue[0].url, { filter: 'audioonly', highWaterMark: 1<<25 }); //, quality: 'lowest'
-  //.pipe(fs.createWriteStream('./videos/video.mp3'));
+  let music_stream = ytdl(data.queue[0].url, { filter: 'audioonly', highWaterMark: 1<<25 });
 
-  data.dispatcher = await data.connection.play(music_stream); //"/videos/video.mp3" //music_stream, {bitrate: 68000 }
+  data.dispatcher = await data.connection.play(music_stream);
   data.dispatcher.guildID = data.guildID;
 
   data.dispatcher.on('error', console.error);

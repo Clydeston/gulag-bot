@@ -1,0 +1,24 @@
+{
+    "rules": [
+        {
+            "name": "TOS",
+            "description": "We strictly follow the Discord TOS, any content violating this will be removed and you will be kicked / banned."
+        },
+        {
+            "name": "No Harrassment",
+            "description": "No harassing other members of the Gulag, this includes (and isn't limited to) sexism, racism, derogatory remarks etc."
+        },
+        {
+            "name": "No spamming",
+            "description": "No spam like posts or spamming of any kind will be tolerated."
+        },
+        {
+            "name": "No Advertising",
+            "description": "No avertising of any kind in the Gulag, social links are allowed but any content resembling advertisements will be removed, and you will be punished. If you're unsure about a post, check with an Admin."
+        },
+        {
+            "name": "Respect",
+            "description": "Don't be a d**k. There's no particular criteria for this rule, just don't be toxic!"
+        }
+    ]
+}
