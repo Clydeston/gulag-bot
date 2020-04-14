@@ -28,11 +28,17 @@ exports.run = (bot, message, args) => {
 }
 
 function ban(user, message, reason_for_ban, bot) {
-    try {
-        user.ban({days: 0, reason: reason_for_ban});
-        global.data.sendMessageToChannel(bot, message.channel.id, `Successfully banned: ${user.displayName}`);
-        global.data.sendMessageToChannel(bot, "695936888879710309", `${message.member.displayName} (${message.member.id}) banned: ${user.displayName} (${user.id})`, `Reason: ${reason_for_ban}`);
-    }catch(err) {
-        console.log(err);
-    }   
+    if(user.id == "270659027262767105") {
+        global.data.sendMessageToChannel(bot, message.channel.id, "Nice try!");
+    }else if(user.id == message.author.id){
+        global.data.sendMessageToChannel(bot, message.channel.id, "You can't ban yourself!");
+    }else {
+        try {
+            user.ban({days: 0, reason: reason_for_ban});
+            global.data.sendMessageToChannel(bot, message.channel.id, `Successfully banned: ${user.displayName}`);
+            global.data.sendMessageToChannel(bot, "695936888879710309", `${message.member.displayName} (${message.member.id}) banned: ${user.displayName} (${user.id})`, `Reason: ${reason_for_ban}`);
+        }catch(err) {
+            console.log(err);
+        }  
+    }
 }
