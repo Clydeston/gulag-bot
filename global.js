@@ -28,6 +28,14 @@ methods.sendMessageToChannel = function(bot, channel_id, title, description = nu
   channel.send(embed);
 }
 
+methods.userHasRole = function(userObj, role_name) {
+  var has_role = false;
+  if(userObj.roles.cache.find(role => role.name == role_name)) {
+    has_role = true;
+  }
+  return has_role;
+}
+
 exports.data = methods;
 
 /* 

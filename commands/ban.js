@@ -17,13 +17,13 @@ exports.run = (bot, message, args) => {
             if(!args[1]) {
                 global.data.sendMessageToChannel(bot, message.channel.id, "Please provide a valid reason for the ban!");
             }else {
-                ban(user, message, args[1], bot);
+                ban(user, message, args.slice(1), bot);
             }
         }else {
             global.data.sendMessageToChannel(bot, message.channel.id, "Please provide a valid mention!");
         }
     } else {
-        message.reply(" Sorry you require elevated permissions!");
+        message.reply("Sorry you require elevated permissions!");
     } 
 }
 
@@ -33,12 +33,18 @@ function ban(user, message, reason_for_ban, bot) {
     }else if(user.id == message.author.id){
         global.data.sendMessageToChannel(bot, message.channel.id, "You can't ban yourself!");
     }else {
-        try {
-            user.ban({days: 0, reason: reason_for_ban});
-            global.data.sendMessageToChannel(bot, message.channel.id, `Successfully banned: ${user.displayName}`);
-            global.data.sendMessageToChannel(bot, "695936888879710309", `${message.member.displayName} (${message.member.id}) banned: ${user.displayName} (${user.id})`, `Reason: ${reason_for_ban}`);
-        }catch(err) {
-            console.log(err);
-        }  
+        var ban_user_admin = global.data.userHasRole(user, "Admin");
+        if(ban_user_admin) {
+            message.reply("Admins cannot be banned!");            
+       }else {    
+            var parsed_ban_reason = reason_for_ban.join(" ");            
+            try {
+                user.ban({days: 0, reason: parsed_ban_reason});
+                global.data.sendMessageToChannel(bot, message.channel.id, `Successfully banned: ${user.displayName}`);
+                global.data.sendMessageToChannel(bot, "695936888879710309", `${message.member.displayName} (${message.member.id}) banned: ${user.displayName} (${user.id})`, `Reason: ${parsed_ban_reason}`);
+            }catch(err) {
+                console.log(err);
+            }  
+       } 
     }
 }
