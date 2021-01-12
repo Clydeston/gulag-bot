@@ -35,7 +35,7 @@ exports.run = async (bot, message, args, ops) => {
 
   //Adding song to queue
   data.queue.push({
-    songTitle: info.title,
+    songTitle: info.videoDetails.title,
     requester: message.author.tag,
     url: args[0],
     announceChannel: message.channel.id

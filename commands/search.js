@@ -18,7 +18,7 @@ exports.run = (bot, message, args, ops) => {
         embed.setColor("0x42F100");
 
         let video_result = results.videos.slice(0, 10);
-        
+        console.log(video_result.length);
         if(video_result.length < 10) {
             return message.channel.send({embed:{
                 title:"Please search again",
