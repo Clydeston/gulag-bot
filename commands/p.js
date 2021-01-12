@@ -44,7 +44,7 @@ exports.run = async (bot, message, args, ops) => {
   if(!data.dispatcher) play(bot, ops, data);
   else{
     message.channel.send({embed:{
-      title: `Song added to queue: ${info.title}`,
+      title: `Song added to queue: ${info.videoDetails.title}`,
       description: `-Requested by: ${data.queue[0].requester}`,
       color: 0xd6c211
     }});
