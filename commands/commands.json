@@ -146,6 +146,18 @@
                     "name": "Warden"
                 }
             ]
+        },
+        {
+            "name": "retard",        
+            "description": "... \n Usage: [prefix] retard [@mention]",
+            "roles": [
+                {
+                    "name": "Admin"
+                },
+                {
+                    "name": "Warden"
+                }
+            ]
         }
     ]
 }
