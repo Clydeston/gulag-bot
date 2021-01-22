@@ -15,6 +15,8 @@ exports.run = (bot, message, args) => {
     if(access_command) {        
         if(!user_to_give_role) {
             global.data.sendMessageToChannel(bot, message.channel.id, "Please provide a valid mention!");
+        }else if(user.id == message.author.id){
+            global.data.sendMessageToChannel(bot, message.channel.id, "You deserve it... But no!");
         }else{
             let user = guild.member(user_to_give_role);
             var role = guild.roles.cache.get("801941666306588675");
