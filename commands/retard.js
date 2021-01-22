@@ -12,13 +12,13 @@ exports.run = (bot, message, args) => {
         }
     });
 
-    if(access_command) {        
+    if(access_command) {       
+        let user = guild.member(user_to_give_role); 
         if(!user_to_give_role) {
             global.data.sendMessageToChannel(bot, message.channel.id, "Please provide a valid mention!");
         }else if(user.id == message.author.id){
             global.data.sendMessageToChannel(bot, message.channel.id, "You deserve it... But no!");
-        }else{
-            let user = guild.member(user_to_give_role);
+        }else{           
             var role = guild.roles.cache.get("801941666306588675");
             if(user.roles.cache.find(r => r.id == "801941666306588675")){
                 global.data.sendMessageToChannel(bot, message.channel.id, "User is already dribbling!");
