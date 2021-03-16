@@ -1,7 +1,13 @@
 const { exec, spawn } = require('child_process');
 const global = require("../global.js");
 const config = require("../config.json");
+const ping = require("tcp-ping");
 
+function restart(bot, message) {
+    const bat = spawn(config.server_path, ['a', 'b'], { detached: true });    
+    bat.unref();  
+    global.data.sendMessageToChannel(bot, message.channel.id, "Server restarted!");
+}
 
 exports.run = (bot, message, args) => {
 
@@ -12,15 +18,23 @@ exports.run = (bot, message, args) => {
         access_command = true;
       }
 
-      if(access_command) {
-        const bat = spawn(config.server_path, ['a', 'b'], { detached: true });    
-        bat.unref();  
-        global.data.sendMessageToChannel(bot, message.channel.id, "Server restarted!");
+      if(access_command) {             
+        ping.probe(config.server_ip, 25565, function(err, data) {
+          if(err) {
+            console.log(err);
+          }else{
+            if(!data) {
+              restart(bot, message);
+            }else{
+              message.reply("The server is not dead!");
+            }
+          }          
+        });
+      
       }else {
         message.reply("Sorry you require elevated permissions!");
       }
     });
-    console.log("run");
    
   }
   
