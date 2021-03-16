@@ -158,6 +158,18 @@
                     "name": "Warden"
                 }
             ]
+        },
+        {
+            "name": "restart",        
+            "description": "... \n Usage: [prefix] restart",
+            "roles": [
+                {
+                    "name": "Server Admin"
+                }, 
+                {
+                    "name": "Warden"
+                }
+            ]
         }
     ]
 }
