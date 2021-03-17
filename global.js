@@ -36,20 +36,16 @@ methods.userHasRole = function(userObj, role_name) {
   return has_role;
 }
 
-exports.data = methods;
-
-/* 
+methods.hasCommandAccess = function(command_name, message) {
   var access_command = false;
-  var required_roles = global.data.getCommandPermissions("purge");
+  var required_roles = this.getCommandPermissions(command_name);
   required_roles.forEach(element => {
-    if(message.member.roles.cache.some(role => role.name ===element.name)) {
+    if(message.member.roles.cache.some(role => role.name === element.name)) {
       access_command = true;
     }
   });
 
-  if(access_command) {
-      purge();
-  } else {
-      message.reply(" Sorry you require elevated permissions!");
-  } 
-*/
+  return access_command;
+}
+
+exports.data = methods;
