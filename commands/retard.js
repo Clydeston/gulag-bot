@@ -4,15 +4,7 @@ exports.run = (bot, message, args) => {
     const user_to_give_role = message.mentions.users.first();
     let guild = bot.guilds.cache.get("694513340931768340");
 
-    var access_command = false;
-    var required_roles = global.data.getCommandPermissions("kick");
-    required_roles.forEach(element => {
-        if(message.member.roles.cache.some(role => role.name === element.name)) {
-        access_command = true;
-        }
-    });
-
-    if(access_command) {       
+    if(global.data.hasCommandAccess("kick", message)) {
         let user = guild.member(user_to_give_role); 
         if(!user_to_give_role) {
             global.data.sendMessageToChannel(bot, message.channel.id, "Please provide a valid mention!");
@@ -27,8 +19,9 @@ exports.run = (bot, message, args) => {
                 global.data.sendMessageToChannel(bot, message.channel.id, "Member is now retarded!");
             }
         }
-    } else {
+    }else{
         message.reply("Sorry you require elevated permissions!");
-    }   
+    }  
 }
-// wrote this while tired - TODO CHECK LATER
+// wrote this while tired - TODO CHECK LATER 
+// TODO still not checked 

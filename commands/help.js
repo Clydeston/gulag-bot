@@ -16,17 +16,9 @@ exports.run = (bot, message, args) => {
         if(permissions[0].name == "default") {
             embed.addField(`${capitalised_name}`, `${capitalised_desc}`, false);
         }else {
-            var access_command = false;
-            var required_roles = global.data.getCommandPermissions("purge");
-            required_roles.forEach(element => {
-              if(message.member.roles.cache.some(role => role.name ===element.name)) {
-                access_command = true;
-              }
-            });
-          
-            if(access_command) {
-                embed.addField(`${capitalised_name}`, `${capitalised_desc}`, false);
-            }
+          if(global.data.hasCommandAccess("purge", message)) {
+            embed.addField(`${capitalised_name}`, `${capitalised_desc}`, false);
+          }
         }        
     }
 

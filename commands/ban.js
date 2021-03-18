@@ -3,15 +3,7 @@ exports.run = (bot, message, args) => {
     let guild = bot.guilds.cache.get("694513340931768340");
     const user_to_ban = message.mentions.users.first();
 
-    var access_command = false;
-    var required_roles = global.data.getCommandPermissions("purge");
-    required_roles.forEach(element => {
-      if(message.member.roles.cache.some(role => role.name ===element.name)) {
-        access_command = true;
-      }
-    });
-  
-    if(access_command) {
+    if(global.data.hasCommandAccess("purge", message)) {
         if(user_to_ban) {
             let user = guild.member(user_to_ban);
             if(!args[1]) {
@@ -22,9 +14,9 @@ exports.run = (bot, message, args) => {
         }else {
             global.data.sendMessageToChannel(bot, message.channel.id, "Please provide a valid mention!");
         }
-    } else {
+    }else{
         message.reply("Sorry you require elevated permissions!");
-    } 
+    }
 }
 
 function ban(user, message, reason_for_ban, bot) {
